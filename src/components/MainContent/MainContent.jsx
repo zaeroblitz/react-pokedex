@@ -19,7 +19,7 @@ const MainContent = () => {
 
   return (
     <main
-      className={`mb-[100px] px-6 py-4 mx-auto w-full min-h-screen max-w-[1280px]
+      className={`w-full min-h-screen max-w-[1280px] mb-[100px] px-6 py-4 mx-auto 
       ${isActiveMenu ? 'lg:ml-96' : ''}`}
     >
       <Navbar />
@@ -32,12 +32,12 @@ const MainContent = () => {
       )}
 
       {/* Success Get Data */}
-      <div className="absolute text-[600px] font-extrabold text-[#E9E9E9] -top-36 -right-44 z-10">
+      <div className="hidden md:block absolute text-[600px] font-extrabold text-[#E9E9E9] -top-36 -right-44">
         <TbPokeball />
       </div>
       {Object.keys(data).length !== 0 && (
         <>
-          <section className="relative flex flex-col items-center z-10 -mt-16 mx-6">
+          <section className="relative flex flex-col items-center -mt-16 mx-6">
             <img
               src={data.sprites.other.home.front_default}
               alt={data.name}
