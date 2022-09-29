@@ -43,11 +43,6 @@ const Sidebar = () => {
     }
   }, [isActiveMenu, offset]);
 
-  //* Reset query if exists when screen size is changed
-  useEffect(() => {
-    setQuery('');
-  }, [screenSize]);
-
   //* Hide sidebar if screen size <= 1100px
   useEffect(() => {
     if (screenSize > 0 && screenSize <= 1100) {
@@ -67,7 +62,7 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="w-64 sm:w-72 lg:w-96 h-screen fixed overflow-auto bg-[#FAF9F9] z-20" ref={ref}>
+    <nav className="fixed h-screen overflow-auto w-64 sm:w-72 lg:w-96 bg-[#FAF9F9] z-50" ref={ref}>
       {/* Header */}
       <div className="sticky w-full top-0 bg-[#FAF9F9] pt-8 px-8 pb-2">
         <div className="flex justify-between items-center mb-5">
@@ -91,6 +86,7 @@ const Sidebar = () => {
           placeholder="Search pokemon.."
           onChange={(e) => setQuery(e.target.value.toLowerCase())}
           onKeyDown={handlePokemonSearch}
+          value={query}
           className="w-full rounded-xl px-6 py-4 text-zinc-500 placeholder:text-zinc-300 border-none focus:outline-4 focus:outline-zinc-200"
         />
       </div>
@@ -134,7 +130,7 @@ const Sidebar = () => {
           <p className="text-zinc-600 mt-5 mb-8 mx-8">{error}</p>
         )
       }
-    </aside>
+    </nav>
   );
 };
 
