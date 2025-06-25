@@ -1,17 +1,17 @@
-import React from "react";
-import { CgMenuLeft } from "react-icons/cg";
-import { GiLibertyWing } from "react-icons/gi";
-import { TbCrown, TbPokeball, TbSwords } from "react-icons/tb";
-import { useSelector } from "react-redux";
-import { GridLoader } from "react-spinners";
-import Navbar from "./Navbar";
+import React from 'react';
+import { CgMenuLeft } from 'react-icons/cg';
+import { GiLibertyWing } from 'react-icons/gi';
+import { TbCrown, TbPokeball, TbSwords } from 'react-icons/tb';
+import { useSelector } from 'react-redux';
+import { GridLoader } from 'react-spinners';
+import Navbar from './Navbar';
 
-import Ability from "./Ability";
-import BaseStat from "./BaseStat";
-import Evolutions from "./Evolutions";
-import TypesEffectiveness from "./TypesEffectiveness";
-import typeIcon from "../../assets/type";
-import "../styles.css";
+import Ability from './Ability';
+import BaseStat from './BaseStat';
+import Evolutions from './Evolutions';
+import TypesEffectiveness from './TypesEffectiveness';
+import typeIcon from '../../assets/type';
+import '../styles.css';
 
 const MainContent = () => {
   const { loading, data, error } = useSelector((state) => state.loadPokemon);
@@ -20,7 +20,7 @@ const MainContent = () => {
   return (
     <main
       className={`w-full min-h-screen max-w-[1280px] mb-[100px] px-6 py-4 mx-auto 
-      ${isActiveMenu ? "lg:ml-96" : ""}`}
+      ${isActiveMenu ? 'lg:ml-96' : ''}`}
     >
       <Navbar />
 
@@ -43,26 +43,17 @@ const MainContent = () => {
               alt={data.name}
               className="w-80 object-cover bg-cover bg-center bg-no-repeat"
             />
-            <p className="text-xl text-zinc-300 font-bold mt-3">
-              #{data.id.toString().padStart(4, "0")}
-            </p>
-            <p className="text-3xl text-zinc-300 font-semibold capitalize mt-2">
-              {data.name}
-            </p>
+            <p className="text-xl text-zinc-300 font-bold mt-3">#{(data.id.toString()).padStart(4, '0')}</p>
+            <p className="text-3xl text-zinc-700 font-semibold capitalize mt-2">{data.name}</p>
             <div className="flex item-center gap-3 mt-2">
               {data.types.map((item, index) => (
-                <div
-                  key={index}
-                  className={`${item.type.name} flex items-center px-3 py-2 rounded-lg`}
-                >
+                <div key={index} className={`${item.type.name} flex items-center px-3 py-2 rounded-lg`}>
                   <img
                     src={typeIcon[item.type.name]}
                     alt={item.type.name}
                     className="w-[28px] p-1 rounded-full"
                   />
-                  <p className="ml-1 text-lg text-white capitalize">
-                    {item.type.name}
-                  </p>
+                  <p className="ml-1 text-lg text-white capitalize">{item.type.name}</p>
                 </div>
               ))}
             </div>
@@ -74,9 +65,7 @@ const MainContent = () => {
               {/* Base Stats   */}
               <section className="bg-white py-6 rounded-xl">
                 <div className="flex items-center px-6">
-                  <div
-                    className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}
-                  >
+                  <div className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}>
                     <CgMenuLeft />
                   </div>
                   <h4 className="text-zinc-700 font-bold">Base Stats</h4>
@@ -97,9 +86,7 @@ const MainContent = () => {
               {/* Abilities */}
               <section className="bg-white py-6 rounded-xl">
                 <div className="flex items-center px-6">
-                  <div
-                    className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}
-                  >
+                  <div className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}>
                     <TbSwords />
                   </div>
                   <h4 className="text-zinc-700 font-bold">Abilities</h4>
@@ -118,9 +105,7 @@ const MainContent = () => {
               {/* Evolution Line   */}
               <section className="bg-white py-6 rounded-xl">
                 <div className="flex items-center px-6">
-                  <div
-                    className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}
-                  >
+                  <div className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}>
                     <GiLibertyWing />
                   </div>
                   <h4 className="text-zinc-700 font-bold">Evolution Line</h4>
@@ -135,21 +120,14 @@ const MainContent = () => {
               {/* Type Effectiveness */}
               <section className="bg-white py-6 rounded-xl">
                 <div className="flex items-center px-6">
-                  <div
-                    className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}
-                  >
+                  <div className={`${data.types[0].type.name} rounded-full p-2 text-2xl text-white mr-3`}>
                     <TbCrown />
                   </div>
-                  <h4 className="text-zinc-700 font-bold">
-                    Type Effectiveness
-                  </h4>
+                  <h4 className="text-zinc-700 font-bold">Type Effectiveness</h4>
                 </div>
                 <hr className="my-4" />
                 <div className="mt-3 px-6">
-                  <TypesEffectiveness
-                    pokemonId={data.id}
-                    types={data.types.map((item) => item.type.name)}
-                  />
+                  <TypesEffectiveness pokemonId={data.id} types={data.types.map((item) => item.type.name)} />
                 </div>
               </section>
             </div>
@@ -160,9 +138,7 @@ const MainContent = () => {
       {/* Error */}
       {error && (
         <div className="w-full flex justify-center mt-8">
-          <p className="text-center text-zinc-700">
-            Something gone wrong. Please contact the developer.
-          </p>
+          <p className="text-center text-zinc-700">Something gone wrong. Please contact the developer.</p>
         </div>
       )}
     </main>
