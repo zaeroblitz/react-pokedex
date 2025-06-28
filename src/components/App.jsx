@@ -21,7 +21,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex bg-[#06152B] overflow-x-hidden">
+    <div className="w-full min-h-screen flex bg-[#F6F6F6] overflow-x-hidden">
       <Sidebar />
       <MainContent />
     </div>

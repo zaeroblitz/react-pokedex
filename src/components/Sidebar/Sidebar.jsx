@@ -75,11 +75,11 @@ const Sidebar = () => {
 
   return (
     <nav
-      className="fixed h-screen overflow-auto w-64 sm:w-72 lg:w-96 bg-[#060b2b] z-50"
+      className="fixed h-screen overflow-auto w-64 sm:w-72 lg:w-96 bg-[#F6F6F6] z-50"
       ref={ref}
     >
       {/* Header */}
-      <div className="sticky w-full top-0 bg-[#060b2b] pt-8 px-8 pb-2">
+      <div className="sticky w-full top-0 bg-[#F6F6F6] pt-8 px-8 pb-2">
         <div className="flex justify-between items-center mb-5">
           <div className="flex items-center">
             <div className="mr-3">
